@@ -41,7 +41,7 @@ class AboutUsHandler implements RequestHandlerInterface
         //  var_dump($isValid);
         // var_dump($this->aboutUsForm->getMessages());die;
         if ($isValid === true) {
-            return new RedirectResponse('/loginuser');
+            return new RedirectResponse('/shoppinghandler');
 
         }
         return new RedirectResponse('/lognotuser');
