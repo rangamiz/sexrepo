@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Form\ConnectUsForm;
 use App\Handler\AboutUsHandlerFactory;
 use App\Form\AboutUsForm;
 use App\Form\LoginForm;
 use App\Form\RegisterForm;
 use App\Handler\AboutUsHandler;
+use App\Handler\ConnectUsHandlerFactory;
+use App\Handler\ConnectUsHandler;
 use App\Handler\ContactHandler;
 use App\Handler\ContactHandlerFactory;
 use App\Handler\HomePageHandler;
@@ -60,6 +63,7 @@ class ConfigProvider
                 LoginForm::class => LoginForm::class,
                 RegisterForm::class => RegisterForm::class,
                 AboutUsForm::class => AboutUsForm::class,
+                ConnectUsForm::class => ConnectUsForm::class,
             ],
             'factories' => [
                 HomePageHandler::class => HomePageHandlerFactory::class,
@@ -71,6 +75,7 @@ class ConfigProvider
                 RegisterAkramHandler::class => RegisterAkramHandlerFactory::class,
                 RegisterHandler::class => RegisterHandlerFactory::class,
                 AboutUsHandler::class => AboutUsHandlerFactory:: class,
+                ConnectUsHandler::class => ConnectUsHandlerFactory::class,
             ],
         ];
     }

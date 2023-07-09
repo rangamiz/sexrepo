@@ -36,12 +36,16 @@ class AboutUsHandler implements RequestHandlerInterface
                 )
             );
         }
+
         $this->aboutUsForm->SetData($request->getParsedBody());
         $isValid = $this->aboutUsForm->isValid();
-        //  var_dump($isValid);
-        // var_dump($this->aboutUsForm->getMessages());die;
-        if ($isValid === true) {
-            return new RedirectResponse('/shoppinghandler/');
+
+        if (!$isValid) {
+            return new HtmlResponse(
+                $this->templateRenderer->render('app::aboutus',
+                    ['FormMessages' => $this->aboutUsForm->getMessages()]
+                )
+            );
 
         }
         return new RedirectResponse('/shoppinghandler');

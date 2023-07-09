@@ -51,4 +51,6 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get('/news[/]', App\Handler\NewsHandler::class,'news');
     $app->route('/registerhandler[/]', App\Handler\RegisterHandler::class,['POST','GET'],'registerHandler');
     $app->route('/aboutus[/]',App\Handler\AboutUsHandler::class,['POST','GET'],'aboutUsHandler');
+    $app->route('/connectus[/]',App\Handler\ConnectUsHandler::class,['GET','POST'],'ConnectUsHandler');
+
 };
