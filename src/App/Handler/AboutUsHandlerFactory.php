@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Handler;
 
+use App\DB\ConnectUsTableGateway;
 use App\Form\AboutUsForm;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
@@ -12,7 +13,8 @@ class AboutUsHandlerFactory
     {
         return new AboutUsHandler(
             $container->get(TemplateRendererInterface::class),
-            $container->get(AboutUsForm::class)
+            $container->get(AboutUsForm::class),
+            $container->get(ConnectUsTableGateway::class)
         );
     }
 }

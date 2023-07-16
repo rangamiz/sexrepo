@@ -48,9 +48,9 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
 
     // Akram
     $app->get('/contacts[/]', App\Handler\ContactHandler::class, 'contact');
-    $app->get('/news[/]', App\Handler\NewsHandler::class,'news');
-    $app->route('/registerhandler[/]', App\Handler\RegisterHandler::class,['POST','GET'],'registerHandler');
-    $app->route('/aboutus[/]',App\Handler\AboutUsHandler::class,['POST','GET'],'aboutUsHandler');
-    $app->route('/connectus[/]',App\Handler\ConnectUsHandler::class,['GET','POST'],'ConnectUsHandler');
-
+    $app->get('/news[/]', App\Handler\NewsHandler::class, 'news');
+    $app->route('/registerhandler[/]', App\Handler\RegisterHandler::class, ['POST', 'GET'], 'registerHandler');
+    $app->route('/aboutus[/]', App\Handler\AboutUsHandler::class, ['POST', 'GET'], 'aboutUsHandler');
+    $app->route('/connectus[/]', App\Handler\ConnectUsHandler::class, ['GET', 'POST'], 'ConnectUsHandler');
+    $app->route('/test[/]',App\Handler\TestHandler::class,['GET', 'POST'],'Test');
 };

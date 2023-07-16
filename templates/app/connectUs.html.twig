@@ -1,0 +1,42 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}ConnectUs{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br><br><br><br>
+    <h1>Dear Viewer</h1>
+    <h5>if you would like,you can send your comments<br> to our public relations through whatsapp</h5>
+    <h5 style="color: black">09125386058</h5>
+    <h6>email: rangamiz.akram2022@gmail.com</h6>
+    <h6>tank you</h6><br>
+    <h6>concessionaire: rangamiz</h6>
+    <h6>director responsible for:mr razmkhah</h6>
+
+    <form action="/connectus/" class="was-validated" method="post">
+        <div class="mb-3 mt-3">
+            <label for="username" class="form-label">username:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter username" name="username">
+            <div class="">{%for error in FormMessages['username']|default([]) %}
+            {{ error }}<br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="">{%for error in FormMessages['email']|default([]) %}
+            {{ error }}<br>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+            <label class="form-check-label" for="myCheck">I agree on blabla.</label>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Check this checkbox to continue.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}

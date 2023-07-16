@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\DB\ConnectUsTableGateway;
+use App\DB\ConnectUsTableGatewayFactory;
+use App\DB\DBAdapter;
+use App\DB\DBAdapterFactory;
 use App\Form\ConnectUsForm;
+use App\Form\TestForm;
 use App\Handler\AboutUsHandlerFactory;
 use App\Form\AboutUsForm;
 use App\Form\LoginForm;
@@ -29,7 +34,8 @@ use App\Handler\RegisterHandler;
 use App\Handler\RegisterHandlerFactory;
 use App\Handler\ShoppingHandler;
 use App\Handler\ShoppingHandlerFactory;
-use Whoops\Handler\Handler;
+use App\Handler\TestHandler;
+use App\Handler\TestHandlerFactory;
 
 /**
  * The configuration provider for the App module
@@ -64,6 +70,7 @@ class ConfigProvider
                 RegisterForm::class => RegisterForm::class,
                 AboutUsForm::class => AboutUsForm::class,
                 ConnectUsForm::class => ConnectUsForm::class,
+                TestForm::class => TestForm::class,
             ],
             'factories' => [
                 HomePageHandler::class => HomePageHandlerFactory::class,
@@ -75,8 +82,12 @@ class ConfigProvider
                 RegisterAkramHandler::class => RegisterAkramHandlerFactory::class,
                 RegisterHandler::class => RegisterHandlerFactory::class,
                 AboutUsHandler::class => AboutUsHandlerFactory:: class,
-                ConnectUsHandler::class => ConnectUsHandlerFactory::class,
-            ],
+                TestHandler::class => TestHandlerFactory::class,
+                ConnectUsHandler::class=>ConnectUsHandlerFactory::class,
+                ConnectUsTableGateway::class=>ConnectUsTableGatewayFactory::class,
+                DBAdapter::class=>DBAdapterFactory::class,
+
+            ]
         ];
     }
 

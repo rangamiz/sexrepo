@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Handler;
 
 
+use App\DB\ConnectUsTableGateway;
 use App\Form\AboutUsForm;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -16,15 +17,16 @@ class AboutUsHandler implements RequestHandlerInterface
 {
     private TemplateRendererInterface $templateRenderer;
     private AboutUsForm $aboutUsForm;
-
+    private ConnectUsTableGateway $connectUsTableGateway;
     /**
      * @param TemplateRendererInterface $templateRenderer
      * @param AboutUsForm $aboutUsForm
      */
-    public function __construct(TemplateRendererInterface $templateRenderer, AboutUsForm $aboutUsForm)
+    public function __construct(TemplateRendererInterface $templateRenderer, AboutUsForm $aboutUsForm,ConnectUsTableGateway $connectUsTableGateway)
     {
         $this->templateRenderer = $templateRenderer;
         $this->aboutUsForm = $aboutUsForm;
+        $this->connectUsTableGateway = $connectUsTableGateway;
     }
 
     public function Handle(ServerRequestInterface $request): ResponseInterface
